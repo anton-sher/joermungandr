@@ -23,8 +23,13 @@ rm joermungandr.cbin
 javac joermungandr.java && java joermungandr
 
 echo "5. C"
-rm joermungandr.sh
+rm joermungandr.cpp
+rm joermungandr.cppbin
 gcc joermungandr.c -o joermungandr.cbin && ./joermungandr.cbin
+
+echo "6. C++"
+rm joermungandr.sh
+g++ joermungandr.cpp -o joermungandr.cppbin && ./joermungandr.cppbin
 
 echo "X. Bash."
 rm joermungandr.py

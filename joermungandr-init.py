@@ -11,8 +11,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def cpp(s):
+    return "#include <iostream>\n#include <fstream>\nint main(){std::ofstream f;\nf.open(\"joermungandr.sh\");\nf << \"" + quote(s) + "\";\nf.close();\nreturn 0;\n}"
+
+
 def c(s):
-    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.sh\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
+    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.cpp\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
 
 
 def java(s):
@@ -29,7 +33,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(bash(python())))))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(cpp(bash(python()))))))) + "\")", file=f)
 
 
 ruby()"""
@@ -47,8 +51,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def cpp(s):
+    return "#include <iostream>\n#include <fstream>\nint main(){std::ofstream f;\nf.open(\"joermungandr.sh\");\nf << \"" + quote(s) + "\";\nf.close();\nreturn 0;\n}"
+
+
 def c(s):
-    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.sh\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
+    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.cpp\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
 
 
 def java(s):
@@ -65,7 +73,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(bash(python())))))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(cpp(bash(python()))))))) + "\")", file=f)
 
 
 ruby()
