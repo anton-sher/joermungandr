@@ -9,7 +9,7 @@ def q():
 
 def ruby():
     with open("quine.rb", mode='w') as f:
-        print("print \"" + quote(q()) + "\"", file=f)
+        print("File.write('quine.py', \"" + quote(q()) + "\")", file=f)
 
 
 ruby()"""
