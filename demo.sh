@@ -5,29 +5,33 @@ rm joermungandr.rb
 python3 joermungandr-init.py
 
 echo "2. Ruby."
-rm joermungandr.groovy
+rm joermungandr.go
 ruby joermungandr.rb
 
-echo "3. Groovy."
+echo "3. Go"
+rm joermungandr.groovy
+go run joermungandr.go
+
+echo "4. Groovy."
 rm joermungandr.js
 groovy joermungandr.groovy
 
-echo "4. Node.js"
+echo "5. Node.js"
 rm joermungandr.java
 rm joermungandr*.class
 node joermungandr.js
 
-echo "5. Java"
+echo "6. Java"
 rm joermungandr.c
 rm joermungandr.cbin
 javac joermungandr.java && java joermungandr
 
-echo "5. C"
+echo "7. C"
 rm joermungandr.cpp
 rm joermungandr.cppbin
 gcc joermungandr.c -o joermungandr.cbin && ./joermungandr.cbin
 
-echo "6. C++"
+echo "8. C++"
 rm joermungandr.sh
 g++ joermungandr.cpp -o joermungandr.cppbin && ./joermungandr.cppbin
 
