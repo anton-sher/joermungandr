@@ -11,8 +11,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def java(s):
+    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.sh\")){out.print(\"" + quote(s) + "\");}}}"
+
+
 def nodejs(s):
-    return "require(\"fs\").writeFile(\"joermungandr.sh\", \"" + quote(s) + "\");"
+    return "require(\"fs\").writeFile(\"joermungandr.java\", \"" + quote(s) + "\");"
 
 
 def groovy(s):
@@ -21,7 +25,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(bash(python())))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(bash(python()))))) + "\")", file=f)
 
 
 ruby()"""
@@ -39,8 +43,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def java(s):
+    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.sh\")){out.print(\"" + quote(s) + "\");}}}"
+
+
 def nodejs(s):
-    return "require(\"fs\").writeFile(\"joermungandr.sh\", \"" + quote(s) + "\");"
+    return "require(\"fs\").writeFile(\"joermungandr.java\", \"" + quote(s) + "\");"
 
 
 def groovy(s):
@@ -49,7 +57,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(bash(python())))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(bash(python()))))) + "\")", file=f)
 
 
 ruby()

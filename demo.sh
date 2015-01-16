@@ -13,8 +13,13 @@ rm joermungandr.js
 groovy joermungandr.groovy
 
 echo "4. Node.js"
-rm joermungandr.sh
+rm joermungandr.java
+rm joermungandr*.class
 node joermungandr.js
+
+echo "5. Java"
+rm joermungandr.sh
+javac joermungandr.java && java joermungandr
 
 echo "X. Bash."
 rm joermungandr.py
