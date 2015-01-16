@@ -6,7 +6,15 @@ python3 joermungandr-init.py
 rm joermungandr.groovy
 ruby joermungandr.rb
 
-rm joermungandr.py
+rm joermungandr.sh
 groovy joermungandr.groovy
 
-diff joermungandr.py joermungandr-init.py
+rm joermungandr.py
+bash joermungandr.sh
+
+diff -q joermungandr.py joermungandr-init.py
+if [ $? == 0 ]; then
+    echo "Joermungandr!"
+else
+    echo "Faen!"
+fi
