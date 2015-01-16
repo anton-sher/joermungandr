@@ -11,8 +11,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def c(s):
+    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.sh\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
+
+
 def java(s):
-    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.sh\")){out.print(\"" + quote(s) + "\");}}}"
+    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.c\")){out.print(\"" + quote(s) + "\");}}}"
 
 
 def nodejs(s):
@@ -25,7 +29,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(bash(python()))))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(bash(python())))))) + "\")", file=f)
 
 
 ruby()"""
@@ -43,8 +47,12 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def c(s):
+    return "#include <stdio.h>\nint main() {\nFILE *f = fopen(\"joermungandr.sh\", \"w\");\nfprintf(f, \"" + quote(s) + "\");\nfclose(f);\nreturn 0;\n}"
+
+
 def java(s):
-    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.sh\")){out.print(\"" + quote(s) + "\");}}}"
+    return "import java.io.PrintStream; public class joermungandr {public static void main(String... a) throws Exception {try(PrintStream out = new PrintStream(\"joermungandr.c\")){out.print(\"" + quote(s) + "\");}}}"
 
 
 def nodejs(s):
@@ -57,7 +65,7 @@ def groovy(s):
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(bash(python()))))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(java(c(bash(python())))))) + "\")", file=f)
 
 
 ruby()

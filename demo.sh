@@ -18,8 +18,13 @@ rm joermungandr*.class
 node joermungandr.js
 
 echo "5. Java"
-rm joermungandr.sh
+rm joermungandr.c
+rm joermungandr.cbin
 javac joermungandr.java && java joermungandr
+
+echo "5. C"
+rm joermungandr.sh
+gcc joermungandr.c -o joermungandr.cbin && ./joermungandr.cbin
 
 echo "X. Bash."
 rm joermungandr.py
