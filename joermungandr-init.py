@@ -31,13 +31,17 @@ def groovy(s):
     return "new File(\"joermungandr.js\").text = \"" + quote(s) + "\""
 
 
+def scala(s):
+    return "scala.tools.nsc.io.File(\"joermungandr.groovy\").writeAll(\"" + quote(s) + "\")"
+
+
 def go(s):
-    return ("package main\n\nimport (\n    \"io\"\n    \"os\"\n)\n\nfunc main() {\n    file, _ := os.Create(\"joermungandr.groovy\")\n    io.WriteString(file, \"" + quote(s) + "\")\n    file.Close()\n}")
+    return ("package main\n\nimport (\n    \"io\"\n    \"os\"\n)\n\nfunc main() {\n    file, _ := os.Create(\"joermungandr.scala\")\n    io.WriteString(file, \"" + quote(s) + "\")\n    file.Close()\n}")
 
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.go', \"" + quote(go(groovy(nodejs(java(c(cpp(bash(python())))))))) + "\")", file=f)
+        print("File.write('joermungandr.go', \"" + quote(go(scala(groovy(nodejs(java(c(cpp(bash(python()))))))))) + "\")", file=f)
 
 
 ruby()"""
@@ -75,13 +79,17 @@ def groovy(s):
     return "new File(\"joermungandr.js\").text = \"" + quote(s) + "\""
 
 
+def scala(s):
+    return "scala.tools.nsc.io.File(\"joermungandr.groovy\").writeAll(\"" + quote(s) + "\")"
+
+
 def go(s):
-    return ("package main\n\nimport (\n    \"io\"\n    \"os\"\n)\n\nfunc main() {\n    file, _ := os.Create(\"joermungandr.groovy\")\n    io.WriteString(file, \"" + quote(s) + "\")\n    file.Close()\n}")
+    return ("package main\n\nimport (\n    \"io\"\n    \"os\"\n)\n\nfunc main() {\n    file, _ := os.Create(\"joermungandr.scala\")\n    io.WriteString(file, \"" + quote(s) + "\")\n    file.Close()\n}")
 
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.go', \"" + quote(go(groovy(nodejs(java(c(cpp(bash(python())))))))) + "\")", file=f)
+        print("File.write('joermungandr.go', \"" + quote(go(scala(groovy(nodejs(java(c(cpp(bash(python()))))))))) + "\")", file=f)
 
 
 ruby()
