@@ -3,13 +3,17 @@ def quote(s):
     return s.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
 
 
-def q():
+def python():
     return "magic = r\"\"\"" + magic + "\"\"\"\n\n" + magic
+
+
+def groovy(s):
+    return "new File(\"quine.py\").text = \"" + quote(s) + "\""
 
 
 def ruby():
     with open("quine.rb", mode='w') as f:
-        print("File.write('quine.py', \"" + quote(q()) + "\")", file=f)
+        print("File.write('quine.groovy', \"" + quote(groovy(python())) + "\")", file=f)
 
 
 ruby()"""
@@ -19,13 +23,17 @@ def quote(s):
     return s.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
 
 
-def q():
+def python():
     return "magic = r\"\"\"" + magic + "\"\"\"\n\n" + magic
+
+
+def groovy(s):
+    return "new File(\"quine.py\").text = \"" + quote(s) + "\""
 
 
 def ruby():
     with open("quine.rb", mode='w') as f:
-        print("File.write('quine.py', \"" + quote(q()) + "\")", file=f)
+        print("File.write('quine.groovy', \"" + quote(groovy(python())) + "\")", file=f)
 
 
 ruby()
