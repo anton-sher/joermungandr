@@ -11,13 +11,17 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def nodejs(s):
+    return "require(\"fs\").writeFile(\"joermungandr.sh\", \"" + quote(s) + "\");"
+
+
 def groovy(s):
-    return "new File(\"joermungandr.sh\").text = \"" + quote(s) + "\""
+    return "new File(\"joermungandr.js\").text = \"" + quote(s) + "\""
 
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(bash(python()))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(bash(python())))) + "\")", file=f)
 
 
 ruby()"""
@@ -35,13 +39,17 @@ def bash(s):
     return "printf \"" + quote(s.replace('\\', '\\\\')) + "\" > joermungandr.py"
 
 
+def nodejs(s):
+    return "require(\"fs\").writeFile(\"joermungandr.sh\", \"" + quote(s) + "\");"
+
+
 def groovy(s):
-    return "new File(\"joermungandr.sh\").text = \"" + quote(s) + "\""
+    return "new File(\"joermungandr.js\").text = \"" + quote(s) + "\""
 
 
 def ruby():
     with open("joermungandr.rb", mode='w') as f:
-        print("File.write('joermungandr.groovy', \"" + quote(groovy(bash(python()))) + "\")", file=f)
+        print("File.write('joermungandr.groovy', \"" + quote(groovy(nodejs(bash(python())))) + "\")", file=f)
 
 
 ruby()

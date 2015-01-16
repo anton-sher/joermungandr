@@ -9,10 +9,14 @@ rm joermungandr.groovy
 ruby joermungandr.rb
 
 echo "3. Groovy."
-rm joermungandr.sh
+rm joermungandr.js
 groovy joermungandr.groovy
 
-echo "4. Bash."
+echo "4. Node.js"
+rm joermungandr.sh
+node joermungandr.js
+
+echo "X. Bash."
 rm joermungandr.py
 bash joermungandr.sh
 
